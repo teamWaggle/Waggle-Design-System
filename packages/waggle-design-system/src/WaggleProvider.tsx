@@ -8,10 +8,10 @@ import { Theme } from "@/styles/Theme";
 type WaggleProviderProps = PropsWithChildren;
 
 const WaggleProvider = ({ children }: WaggleProviderProps) => (
-	<ThemeProvider theme={Theme}>
-		<Global styles={GlobalStyle} />
-		{children}
-	</ThemeProvider>
+  <ThemeProvider theme={Theme}>
+    <Global styles={GlobalStyle} />
+    {children}
+  </ThemeProvider>
 );
 
 export default WaggleProvider;

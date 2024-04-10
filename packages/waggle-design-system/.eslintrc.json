@@ -5,7 +5,7 @@
     "node": true
   },
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint","import"],
+  "plugins": ["@typescript-eslint", "react"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",

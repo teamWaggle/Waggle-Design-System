@@ -1,0 +1,70 @@
+{
+  "name": "waggle-design-system",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint --fix './src/**/*.{ts,tsx,js,jsx}'",
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "format": "prettier --write src/**/*.ts{,x}",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "vite-plugin-svgr": "^4.1.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^7.6.4",
+    "@storybook/addon-essentials": "^7.6.4",
+    "@storybook/addon-interactions": "^7.6.4",
+    "@storybook/addon-links": "^7.6.4",
+    "@storybook/addon-onboarding": "^1.0.10",
+    "@storybook/addon-viewport": "^7.6.4",
+    "@storybook/blocks": "^7.6.4",
+    "@storybook/react": "^7.6.4",
+    "@storybook/react-vite": "^7.6.4",
+    "@storybook/test": "^7.6.4",
+    "@types/eslint": "^8",
+    "@types/node": "^20.8.7",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "@vitejs/plugin-react": "^4.0.3",
+    "eslint": "8.2.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "eslint-plugin-storybook": "^0.6.15",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "prettier": "^3.0.3",
+    "storybook": "^7.6.4",
+    "typescript": "5.0.4",
+    "vite": "^4.5.0",
+    "vite-tsconfig-paths": "^4.2.1"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "yarn format",
+      "yarn lint"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "packageManager": "yarn@4.0.2"
+}

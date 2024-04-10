@@ -1,18 +1,47 @@
 {
   "name": "waggle-design-system",
-  "version": "1.0.0",
-  "type": "module",
+  "version": "0.0.1",
+  "description": "Waggle 디자인 시스템",
+  "homepage": "https://github.com/teamWaggle/Waggle-Design-System",
+  "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "browser": "./browser/specific/main.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint --fix './src/**/*.{ts,tsx,js,jsx}'",
     "preview": "vite preview",
-    "prepare": "husky install",
     "format": "prettier --write src/**/*.ts{,x}",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "publish:npm": "rm -rf dist && mkdir dist && tsc && rm -rf ./dist/stories && cp -r ./src/assets ./dist && tsc-alias"
   },
+  "keywords": [
+    "react",
+    "ui",
+    "design-system",
+    "react-components",
+    "uikit",
+    "components",
+    "emotion",
+    "typescript",
+    "library"
+  ],
+  "contributors": [
+    {
+      "name": "sikkzz",
+      "email": "sling0623@gmail.com",
+      "url": "https://github.com/sikkzz"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teamWaggle/Waggle-Design-System.git"
+  },
+  "license": "MIT",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "react": "^18.2.0",
@@ -65,5 +94,10 @@
       "pre-commit": "lint-staged"
     }
   },
-  "packageManager": "yarn@4.0.2"
+  "packageManager": "yarn@4.0.2",
+  "bugs": {
+    "url": "https://github.com/teamWaggle/Waggle-Design-System/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "waggle-design-system@0.0.1"
 }

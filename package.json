@@ -1,11 +1,11 @@
 {
   "name": "waggle-design-system",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "description": "Waggle 디자인 시스템",
   "homepage": "https://github.com/teamWaggle/Waggle-Design-System",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "browser": "./browser/specific/main.js",
   "exports": {

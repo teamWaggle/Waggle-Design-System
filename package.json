@@ -1,13 +1,20 @@
 {
   "name": "waggle-design-system",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "type": "module",
   "description": "Waggle 디자인 시스템",
   "homepage": "https://github.com/teamWaggle/Waggle-Design-System",
-  "private": false,
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "browser": "./browser/specific/main.js",
+  "exports": {
+    ".": {
+      "module": "./dist/index.es.js",
+      "import": "./dist/index.es.js",
+      "default": "./dist/index.cjs.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -43,9 +50,11 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@emotion/babel-plugin": "^11.11.0",
     "@emotion/react": "^11.11.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "vite-plugin-dts": "^3.8.1",
     "vite-plugin-svgr": "^4.1.0"
   },
   "devDependencies": {

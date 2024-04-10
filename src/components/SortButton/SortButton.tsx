@@ -1,4 +1,4 @@
-import SortArrowIcon from "@/assets/svg/ic-sort-arrow.svg?react";
+import SortArrowIcon from "@/assets/svg/ic-sort-arrow.svg";
 
 import Flex from "@/components/Flex/Flex";
 import Text from "@/components/Text/Text";

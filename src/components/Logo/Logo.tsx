@@ -1,4 +1,4 @@
-import PrimaryLogo from "@/assets/svg/ic-logo.svg?react";
+import PrimaryLogo from "@/assets/svg/ic-logo.svg";
 
 interface LogoType {
 	width: number;

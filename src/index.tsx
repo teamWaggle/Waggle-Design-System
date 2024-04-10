@@ -19,6 +19,8 @@ import WaggleProvider from "@/WaggleProvider";
 
 import useSlider from "@/hooks/useSlider";
 
+import { Theme } from "@/styles/Theme";
+
 export {
 	Box,
 	Button,
@@ -39,4 +41,5 @@ export {
 	Text,
 	WaggleProvider,
 	useSlider,
+	Theme,
 };

@@ -26,7 +26,7 @@ export const postMedia = async (formData: FormData) => {
   const { data } = await axiosInstance.post<FormData, AxiosResponse<MediaType>>(
     END_POINTS.MEDIA,
     formData,
-    config,
+    config
   );
 
   return data;

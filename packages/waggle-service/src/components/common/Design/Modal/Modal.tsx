@@ -30,7 +30,7 @@ const Modal = ({
         close();
       }
     },
-    [close],
+    [close]
   );
 
   useEffect(() => {

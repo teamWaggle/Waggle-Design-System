@@ -6,7 +6,7 @@ import { Theme } from "@/styles/Theme";
 
 export const dividerStyle = (
   direction: Required<DividerProps>["direction"],
-  length: Required<DividerProps>["length"],
+  length: Required<DividerProps>["length"]
 ) => {
   const style = {
     horizontal: css({

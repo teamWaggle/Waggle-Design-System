@@ -14,6 +14,6 @@ export const postStory = async (formData: FormData) => {
   return await authorizedAxiosInstance.post<FormData, AxiosResponse<CommonResponseType>>(
     END_POINTS.POST_STORY,
     formData,
-    config,
+    config
   );
 };

@@ -38,7 +38,7 @@ export const useFindEmailForm = ({ prevName, prevBirthday }: UseFindEmailFormPar
       year: "생년",
       month: "월 선택",
       day: "일 선택",
-    },
+    }
   );
 
   const [selectOpen, setSelectOpen] = useState({
@@ -49,7 +49,7 @@ export const useFindEmailForm = ({ prevName, prevBirthday }: UseFindEmailFormPar
 
   const [name, setName] = useState(prevName ?? { value: "" });
   const [birthday, setBirthday] = useState(
-    dateFormatToUTC(birthdayRequest.year, birthdayRequest.month, birthdayRequest.day),
+    dateFormatToUTC(birthdayRequest.year, birthdayRequest.month, birthdayRequest.day)
   );
 
   const validateForm = () => {
@@ -81,7 +81,7 @@ export const useFindEmailForm = ({ prevName, prevBirthday }: UseFindEmailFormPar
         return data;
       });
     },
-    [],
+    []
   );
 
   const handleSelectOpen = useCallback(
@@ -95,7 +95,7 @@ export const useFindEmailForm = ({ prevName, prevBirthday }: UseFindEmailFormPar
         return data;
       });
     },
-    [],
+    []
   );
 
   const updateBirthdayValue = useCallback(
@@ -113,7 +113,7 @@ export const useFindEmailForm = ({ prevName, prevBirthday }: UseFindEmailFormPar
 
       handleSelectOpen(key, false);
     },
-    [],
+    []
   );
 
   const handleSubmit = () => {
@@ -131,7 +131,7 @@ export const useFindEmailForm = ({ prevName, prevBirthday }: UseFindEmailFormPar
             component: () => <ResultEmailModal emailList={result.emailList} />,
           });
         },
-      },
+      }
     );
   };
 

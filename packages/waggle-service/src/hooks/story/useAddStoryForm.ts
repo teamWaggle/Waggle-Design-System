@@ -21,7 +21,7 @@ export const useAddStoryForm = ({ storyId, initialData, mediaList }: UseAddStory
       content: "",
       hashtagList: ["test"],
       mediaList,
-    },
+    }
   );
 
   const modal = useModal();
@@ -37,7 +37,7 @@ export const useAddStoryForm = ({ storyId, initialData, mediaList }: UseAddStory
         return data;
       });
     },
-    [],
+    []
   );
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -65,7 +65,7 @@ export const useAddStoryForm = ({ storyId, initialData, mediaList }: UseAddStory
           onSuccess: () => {
             modal.closeModal();
           },
-        },
+        }
       );
     }
   };

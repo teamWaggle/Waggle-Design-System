@@ -11,7 +11,7 @@ export const postEmailAuthSend = async (email: string) => {
     END_POINTS.EMAIL_AUTH_SEND,
     {
       email,
-    },
+    }
   );
 
   return data;

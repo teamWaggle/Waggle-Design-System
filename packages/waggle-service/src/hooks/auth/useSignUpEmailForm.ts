@@ -52,24 +52,24 @@ export const useSignUpEmailForm = ({
       useValidateForm(
         signUpEmailRequest.authCode,
         emailAuthCodeRef,
-        "이메일 인증 번호를 입력해주세요.",
+        "이메일 인증 번호를 입력해주세요."
       ) === false ||
       useValidateForm(
         emailAuthComplete,
         emailAuthCodeRef,
-        "이메일 인증 번호가 일치하지 않습니다. 다시 입력해주세요.",
+        "이메일 인증 번호가 일치하지 않습니다. 다시 입력해주세요."
       ) === false ||
       useValidateForm(password, passwordRef, "비밀번호를 입력해주세요.") === false ||
       useValidateForm(passwordCheck, passwordCheckRef, "비밀번호 확인을 입력해주세요.") === false ||
       useValidateForm(
         validateComplete,
         passwordRef,
-        "비밀번호가 양식이 일치하지 않습니다. 다시 입력해주세요.",
+        "비밀번호가 양식이 일치하지 않습니다. 다시 입력해주세요."
       ) === false ||
       useValidateForm(
         password === passwordCheck,
         passwordCheckRef,
-        "비밀번호가 일치하지 않습니다. 다시 입력해주세요.",
+        "비밀번호가 일치하지 않습니다. 다시 입력해주세요."
       ) === false
     ) {
       return false;
@@ -89,7 +89,7 @@ export const useSignUpEmailForm = ({
         return data;
       });
     },
-    [],
+    []
   );
 
   const handleSignUp = (e: React.FormEvent) => {
@@ -108,7 +108,7 @@ export const useSignUpEmailForm = ({
               logInMutate({ email: signUpEmailRequest.email, password });
               navigate(`/signup?${TAB_KEY}=${SIGN_UP_TAB_KEY.PROFILE}`);
             },
-          },
+          }
         );
       },
       onError: () => {

@@ -32,7 +32,9 @@ const MemberTeamSlider = () => {
           displayCount={PLANNING.PLANNING_MYTEAM_SLIDER_AMOUNT}
           dataLength={teamList?.length || 0}
         >
-          {teamList?.map((data) => <TeamCard key={data.teamId} data={data} />)}
+          {teamList?.map((data) => (
+            <TeamCard key={data.teamId} data={data} />
+          ))}
         </Slider>
       )}
     </>

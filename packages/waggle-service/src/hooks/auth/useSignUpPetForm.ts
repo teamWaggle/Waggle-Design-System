@@ -39,7 +39,7 @@ export const useSignUpPetForm = ({
       gender: "FEMALE",
       breed: "",
       introduction: "",
-    },
+    }
   );
 
   const validateForm = () => {
@@ -66,7 +66,7 @@ export const useSignUpPetForm = ({
         return data;
       });
     },
-    [],
+    []
   );
 
   const handleSaveClick = () => {
@@ -102,7 +102,7 @@ export const useSignUpPetForm = ({
             onSuccess: () => {
               modal.closeModal();
             },
-          },
+          }
         );
       }
     }

@@ -19,6 +19,6 @@ export const putSiren = async ({ sirenId, formData }: EditSirenRequestType) => {
   return await authorizedAxiosInstance.put<EditSirenRequestType, AxiosResponse<CommonResponseType>>(
     END_POINTS.SIREN(sirenId),
     formData,
-    config,
+    config
   );
 };

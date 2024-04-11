@@ -16,7 +16,7 @@ export const putChangePassword = async ({ memberId, password }: ChangePasswordRe
     END_POINTS.CHANGE_PASSWORD(memberId),
     {
       password,
-    },
+    }
   );
 
   return data;

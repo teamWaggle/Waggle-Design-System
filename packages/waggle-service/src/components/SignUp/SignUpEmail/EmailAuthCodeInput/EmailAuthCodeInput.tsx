@@ -1,13 +1,10 @@
-import { Flex, Box, Text } from "@/components/common";
+import { Flex, Text } from "@/components/common";
+import Button from "@/components/common/Design/Button/Button";
 
 import { useEmailAuthVerifyMutation } from "@/hooks/api/auth/useEmailAuthVerifyMutation";
 
-import { getDefaultTextStyle } from "@/styles/getDefaultTextStyle";
-import { Theme } from "@/styles/Theme";
-
 import type { EmailAuthVerifyType } from "@/types/auth";
 
-import { commonButtonStyle } from "@/components/SignUp/SignUp.shared.style";
 import { getFormTextStyle, getInputStyle } from "@/components/SignUp/SignUp.shared.style";
 
 interface EmailAuthCodeInputParams {
@@ -15,7 +12,7 @@ interface EmailAuthCodeInputParams {
   emailAuthCode: string;
   updateInputValue: <Key extends keyof EmailAuthVerifyType>(
     key: Key,
-    value: EmailAuthVerifyType[Key],
+    value: EmailAuthVerifyType[Key]
   ) => void;
   handleChangeEmailAuthComplete: (complete: boolean) => void;
   emailAuthCodeRef: React.RefObject<HTMLInputElement>;
@@ -43,20 +40,19 @@ const EmailAuthCodeInput = ({
           maxLength={8}
         />
 
-        <Box
-          tag="button"
-          css={commonButtonStyle}
+        <Button
+          variant="outline"
           onClick={() =>
             emailAuthVerifyMutation(
               { email, authCode: emailAuthCode },
               {
                 onSuccess: () => handleChangeEmailAuthComplete(true),
-              },
+              }
             )
           }
         >
-          <Text css={getDefaultTextStyle(Theme.color.disabled_text, 500)}>인증번호 인증</Text>
-        </Box>
+          인증번호 인증
+        </Button>
       </Flex>
     </Flex>
   );

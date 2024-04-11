@@ -43,7 +43,7 @@ export const useLoginForm = () => {
         return data;
       });
     },
-    [],
+    []
   );
 
   const handleSubmit = (e: React.FormEvent) => {

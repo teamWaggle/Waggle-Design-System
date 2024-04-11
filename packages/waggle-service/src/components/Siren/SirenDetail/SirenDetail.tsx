@@ -8,27 +8,34 @@ import SirenTitle from "@/components/Siren/SirenDetail/SirenTitle";
 
 import { PATH } from "@/constants/path";
 
+import { useDeleteSirenMutation } from "@/hooks/api/siren/useDeleteSirenMutation";
 import useModal from "@/hooks/useModal";
 
-import type { SirenResultType } from "@/types/siren";
+import type { SirenDataType } from "@/types/siren";
 
 import { layoutStyle } from "@/components/common/Post/Post.style";
 
-interface SirenDetailParams {
-  sirenData: SirenResultType;
-}
-
-const SirenDetail = ({ sirenData }: SirenDetailParams) => {
-  const { boardId } = sirenData;
+const SirenDetail = ({ sirenData }: SirenDataType) => {
+  const { mutate: deleteSirenMutate } = useDeleteSirenMutation();
 
   const navigate = useNavigate();
 
   const modal = useModal();
 
+  const { boardId } = sirenData;
+
+  const deleteMutate = () => {
+    deleteSirenMutate(boardId, {
+      onSuccess: () => {
+        window.location.href = PATH.SIREN;
+      },
+    });
+  };
+
   const handleDeleteSiren = () => {
     modal.openModal({
       key: `DeleteWarningModal`,
-      component: () => <DeleteWarningModal targetId={boardId} target="siren" />,
+      component: () => <DeleteWarningModal handleDelete={deleteMutate} />,
       notCloseIcon: true,
     });
   };

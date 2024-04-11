@@ -14,6 +14,6 @@ export const putMemberInfoFirst = async (formData: FormData) => {
   return await authorizedAxiosInstance.put<FormData, AxiosResponse<CommonResponseType>>(
     END_POINTS.MEMBER_INFO_FIRST,
     formData,
-    config,
+    config
   );
 };

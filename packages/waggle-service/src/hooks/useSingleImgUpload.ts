@@ -33,7 +33,7 @@ export const useSingleImgUpload = ({ prevImg }: UseSingleImgUploadParams) => {
         },
       });
     },
-    [postMediaMutate],
+    [postMediaMutate]
   );
 
   const handleImgUpload = useCallback(
@@ -49,7 +49,7 @@ export const useSingleImgUpload = ({ prevImg }: UseSingleImgUploadParams) => {
 
       await convertToMediaUrl(files);
     },
-    [postMediaMutate, convertToMediaUrl],
+    [postMediaMutate, convertToMediaUrl]
   );
 
   return {

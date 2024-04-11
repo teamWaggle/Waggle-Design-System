@@ -1,11 +1,10 @@
 import type { FieldValues } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-import * as yup from "yup";
-
 import LeftArrowIcon from "@/assets/svg/left-arrow-brand-primary.svg?react";
 
 import { Box, Flex, Form, Heading, Text } from "@/components/common";
+import * as yup from "yup";
 
 import { TEAM_CONTENT, TEAM_DEFAULT_VALUES, TEAM_TITLE } from "@/constants/team";
 
@@ -14,12 +13,14 @@ import { useSingleImgUpload } from "@/hooks/useSingleImgUpload";
 
 import {
   colorTitleStyle,
+  contentTextareaStyle,
   headingStyle,
   leftArrowIconStyle,
   submitButtonStyle,
   teamContentBox,
   textInputBoxStyle,
   titleBoxStyle,
+  titleTextInputStyle,
 } from "@/components/CreateTeam/Main/Main.style";
 const schema = yup
   .object({
@@ -31,7 +32,7 @@ const schema = yup
 const Main = () => {
   const navigate = useNavigate();
   const { mutate: createTeamMutate } = useCreateTeam();
-  const { convertToMediaUrl, uploadMedia } = useSingleImgUpload();
+  const { convertToMediaUrl, uploadMedia } = useSingleImgUpload({});
 
   const onSubmit = async (data: FieldValues) => {
     const formData = new FormData();
@@ -56,11 +57,13 @@ const Main = () => {
           <Form.ImageInputField name="coverImageUrl" />
           <Flex css={textInputBoxStyle}>
             <Form.TitleInputField
+              inputStyle={titleTextInputStyle}
               placeholder={TEAM_TITLE.PLACEHOLDER}
               name={TEAM_TITLE.NAME}
               validateText={TEAM_TITLE.VALIDATE_TEXT()}
             />
             <Form.ContentInputField
+              inputStyle={contentTextareaStyle}
               placeholder={TEAM_CONTENT.PLACEHOLDER}
               name={TEAM_CONTENT.NAME}
               validateText={TEAM_CONTENT.VALIDATE_TEXT()}

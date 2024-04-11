@@ -1,7 +1,7 @@
 export const dateFormatToUTC = (
   year: string | undefined,
   month: string | undefined,
-  day: string | undefined,
+  day: string | undefined
 ) => {
   let formatMonth = month;
   let formatDay = day;

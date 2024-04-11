@@ -70,7 +70,7 @@ export interface SignUpPetFormType {
 export interface updatePetInputValueType {
   updateInputValue: <Key extends keyof SignUpPetFormType>(
     key: Key,
-    value: SignUpPetFormType[Key],
+    value: SignUpPetFormType[Key]
   ) => void;
 }
 

@@ -9,7 +9,7 @@ interface PasswordParams {
   passwordRequest: { password: string; passwordCheck: string };
   updatePasswordInputValue: <Key extends keyof PasswordFormType>(
     key: Key,
-    value: PasswordFormType[Key],
+    value: PasswordFormType[Key]
   ) => void;
   passwordRef: React.RefObject<HTMLInputElement>;
   passwordCheckRef: React.RefObject<HTMLInputElement>;

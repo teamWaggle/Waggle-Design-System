@@ -13,7 +13,7 @@ export const postSignUp = async ({ email, password }: UserType) => {
     {
       email,
       password,
-    },
+    }
   );
 
   return data;

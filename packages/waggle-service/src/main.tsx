@@ -19,7 +19,6 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
-      refetchOnMount: false,
       refetchOnReconnect: false,
     },
   },
@@ -46,5 +45,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       </RecoilRoot>
       <ReactQueryDevtools initialIsOpen={true} />
     </QueryClientProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );

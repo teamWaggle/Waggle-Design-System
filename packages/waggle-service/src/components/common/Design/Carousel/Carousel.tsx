@@ -34,15 +34,15 @@ export interface CarouselProps extends PropsWithChildren {
   updateMediaList?: string[];
   storyUpdateInputValue?: <Key extends keyof StoryFormData>(
     key: Key,
-    value: StoryFormData[Key],
+    value: StoryFormData[Key]
   ) => void;
   sirenUpdateInputValue?: <Key extends keyof SirenFormData>(
     key: Key,
-    value: SirenFormData[Key],
+    value: SirenFormData[Key]
   ) => void;
   questionUpdateInputValue?: <Key extends keyof QuestionFormData>(
     key: Key,
-    value: QuestionFormData[Key],
+    value: QuestionFormData[Key]
   ) => void;
   hasGallery?: boolean;
 }
@@ -97,7 +97,7 @@ const Carousel = ({
       handleMoveImage,
       handleClickLeft,
       handleClickRight,
-    ],
+    ]
   );
 
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);

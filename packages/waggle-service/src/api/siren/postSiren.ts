@@ -14,6 +14,6 @@ export const postSiren = async (formData: FormData) => {
   return await authorizedAxiosInstance.post<FormData, AxiosResponse<CommonResponseType>>(
     END_POINTS.POST_SIREN,
     formData,
-    config,
+    config
   );
 };

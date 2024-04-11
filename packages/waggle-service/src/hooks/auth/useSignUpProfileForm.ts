@@ -40,7 +40,7 @@ export const useSignUpProfileForm = ({
     prevReqeust ?? {
       nickname: "",
       userUrl: "",
-    },
+    }
   );
 
   const handleNicknameCheckComplete = (complete: boolean) => {
@@ -95,7 +95,7 @@ export const useSignUpProfileForm = ({
         return data;
       });
     },
-    [],
+    []
   );
 
   const handleSubmit = (e: React.FormEvent) => {

@@ -41,7 +41,7 @@ export const useFindPasswordForm = () => {
         return data;
       });
     },
-    [],
+    []
   );
 
   const handleEmailSend = () => {
@@ -74,7 +74,7 @@ export const useFindPasswordForm = () => {
           handleChangeMode("changePassword");
           handleChangeMemberId(result);
         },
-      },
+      }
     );
   };
 

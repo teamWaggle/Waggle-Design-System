@@ -4,6 +4,15 @@
   "tabWidth": 2,
   "printWidth": 100,
   "semi": true,
+  "importOrder": [
+    "^@/utils/(.*)$",
+    "^@/api/(.*)$",
+    "^@/hooks/(.*)$",
+    "^@/pages/(.*)$",
+    "^@/components/(.*)$",
+    "^@/styles/(.*)$",
+    "^[./]"
+  ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
 }

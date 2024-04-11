@@ -2,6 +2,9 @@ import { useMemo } from "react";
 
 import { useRecoilValue } from "recoil";
 
+import { Box } from "@/components/common";
+import CalendarCard from "@/components/Planning/Calendar/CalendarCard/CalendarCard";
+import CalendarHeader from "@/components/Planning/Calendar/CalendarHeader/CalendarHeader";
 import {
   startOfMonth,
   startOfWeek,
@@ -11,10 +14,6 @@ import {
   isSameDay,
   isWithinInterval,
 } from "date-fns";
-
-import { Box } from "@/components/common";
-import CalendarCard from "@/components/Planning/Calendar/CalendarCard/CalendarCard";
-import CalendarHeader from "@/components/Planning/Calendar/CalendarHeader/CalendarHeader";
 
 import useCalendar from "@/hooks/useCalendar";
 
@@ -39,7 +38,7 @@ const Calendar = () => {
         (schedule) =>
           isSameDay(schedule.startTime, day) ||
           isSameDay(schedule.endTime, day) ||
-          isWithinInterval(day, { start: schedule.startTime, end: schedule.endTime }),
+          isWithinInterval(day, { start: schedule.startTime, end: schedule.endTime })
       );
       const position = {
         row,

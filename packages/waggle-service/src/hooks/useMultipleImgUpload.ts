@@ -49,7 +49,7 @@ export const useMultipleImgUpload = ({
         },
       });
     },
-    [postMediaMutate, uploadMediaList],
+    [postMediaMutate, uploadMediaList]
   );
 
   const handleImgUpload = useCallback(
@@ -67,7 +67,7 @@ export const useMultipleImgUpload = ({
 
       await convertToMediaUrl(files);
     },
-    [postMediaMutate, convertToMediaUrl, uploadMediaList],
+    [postMediaMutate, convertToMediaUrl, uploadMediaList]
   );
 
   const dropImgUpload = useCallback(
@@ -85,7 +85,7 @@ export const useMultipleImgUpload = ({
 
       await convertToMediaUrl(dropImgFiles);
     },
-    [postMediaMutate, convertToMediaUrl],
+    [postMediaMutate, convertToMediaUrl]
   );
 
   const handleImgRemove = useCallback(
@@ -100,7 +100,7 @@ export const useMultipleImgUpload = ({
         setIsLoading(false);
       });
     },
-    [uploadMediaList],
+    [uploadMediaList]
   );
 
   return {

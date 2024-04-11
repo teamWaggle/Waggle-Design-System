@@ -19,6 +19,6 @@ export const putPetInfo = async ({ petId, formData }: EditPetRequestType) => {
   return await authorizedAxiosInstance.put<EditPetRequestType, AxiosResponse<CommonResponseType>>(
     END_POINTS.PET(petId),
     formData,
-    config,
+    config
   );
 };

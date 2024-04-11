@@ -9,11 +9,11 @@ interface PostEditPropsType {
   value: string;
   sirenUpdateInputValue?: <Key extends keyof SirenFormData>(
     key: Key,
-    value: SirenFormData[Key],
+    value: SirenFormData[Key]
   ) => void;
   questionUpdateInputValue?: <Key extends keyof QuestionFormData>(
     key: Key,
-    value: QuestionFormData[Key],
+    value: QuestionFormData[Key]
   ) => void;
   updateMediaList: string[];
 }

@@ -17,7 +17,7 @@ const useObserver = (onIntersect: IntersectHandler, options?: IntersectionObserv
         if (entry.isIntersecting) onIntersect(entry, observer);
       });
     },
-    [onIntersect],
+    [onIntersect]
   );
 
   useEffect(() => {

@@ -1,7 +1,6 @@
 import { useCallback, useState, useRef } from "react";
 
 import { useChangePasswordMutation } from "@/hooks/api/auth/usePasswordChangeMutation";
-import useModal from "@/hooks/useModal";
 import { useValidateForm } from "@/hooks/useValidateForm";
 
 import type { PasswordFormType } from "@/types/auth";
@@ -16,8 +15,6 @@ export const usePasswordForm = ({ memberId, handleChangeMode }: usePasswordFormP
 
   const passwordRef = useRef<HTMLInputElement>(null);
   const passwordCheckRef = useRef<HTMLInputElement>(null);
-
-  const modal = useModal();
 
   const [validateComplete, setValidateComplete] = useState(false);
   const [passwordRequest, setPasswordRequest] = useState({
@@ -36,17 +33,17 @@ export const usePasswordForm = ({ memberId, handleChangeMode }: usePasswordFormP
       useValidateForm(
         passwordRequest.passwordCheck,
         passwordCheckRef,
-        "비밀번호 확인을 입력해주세요.",
+        "비밀번호 확인을 입력해주세요."
       ) === false ||
       useValidateForm(
         passwordRequest.password === passwordRequest.passwordCheck,
         passwordCheckRef,
-        "비밀번호가 일치하지 않습니다. 다시 입력해주세요.",
+        "비밀번호가 일치하지 않습니다. 다시 입력해주세요."
       ) === false ||
       useValidateForm(
         validateComplete,
         passwordRef,
-        "비밀번호가 양식이 일치하지 않습니다. 다시 입력해주세요.",
+        "비밀번호가 양식이 일치하지 않습니다. 다시 입력해주세요."
       ) === false
     ) {
       return false;
@@ -66,7 +63,7 @@ export const usePasswordForm = ({ memberId, handleChangeMode }: usePasswordFormP
         return data;
       });
     },
-    [],
+    []
   );
 
   const handlePasswordChange = (e: React.MouseEvent) => {
@@ -81,9 +78,8 @@ export const usePasswordForm = ({ memberId, handleChangeMode }: usePasswordFormP
       {
         onSuccess: () => {
           handleChangeMode && handleChangeMode("complete");
-          modal.closeModal();
         },
-      },
+      }
     );
   };
 

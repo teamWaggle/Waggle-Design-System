@@ -92,7 +92,7 @@ const GallerySlider = ({
         handleMoveImage(mediaIndex !== 0 ? mediaIndex - 1 : mediaIndex);
       });
     },
-    [mediaCurrentIndex, updatedMediaList],
+    [mediaCurrentIndex, updatedMediaList]
   );
 
   return (

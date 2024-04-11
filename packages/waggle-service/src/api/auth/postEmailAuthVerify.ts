@@ -13,7 +13,7 @@ export const postEmailAuthVerify = async ({ email, authCode }: EmailAuthVerifyTy
     {
       email,
       authCode,
-    },
+    }
   );
 
   return data;

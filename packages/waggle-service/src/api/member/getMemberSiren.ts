@@ -6,7 +6,7 @@ import type { SirenListType } from "@/types/siren";
 
 export const getMemberSiren = async (memberId: number, currentPage: number) => {
   const { data } = await axiosInstance.get<SirenListType>(
-    END_POINTS.MEMBER_SIREN(memberId, currentPage),
+    END_POINTS.MEMBER_SIREN(memberId, currentPage)
   );
 
   return data;

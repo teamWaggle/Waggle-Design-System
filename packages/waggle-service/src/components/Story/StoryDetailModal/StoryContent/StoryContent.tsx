@@ -5,6 +5,7 @@ import DeleteWarningModal from "@/components/common/WarningModal/DeleteWarningMo
 import StoryProfile from "@/components/Story/StoryProfile/StoryProfile";
 import StoryUploadModal from "@/components/Story/StoryUploadModal/StoryUploadModal";
 
+import { useDeleteStoryMutation } from "@/hooks/api/story/useDeleteStoryMutation";
 import useModal from "@/hooks/useModal";
 
 import { getDefaultTextStyle } from "@/styles/getDefaultTextStyle";
@@ -12,31 +13,27 @@ import { Theme } from "@/styles/Theme";
 
 import { convertToUTC } from "@/utils/convertToUTC";
 
-import type { MemberType } from "@/types/auth";
+import type { StoryDataType } from "@/types/story";
 
-interface StoryContentParams {
-  boardId: number;
-  member: MemberType;
-  content: string;
-  createdDate: string | Date;
-  mediaList: string[];
-  hashtagList: string[];
-}
+const StoryContent = ({ storyData }: StoryDataType) => {
+  const { mutate: deleteStoryMutate } = useDeleteStoryMutation();
 
-const StoryContent = ({
-  boardId,
-  member,
-  content,
-  createdDate,
-  mediaList,
-  hashtagList,
-}: StoryContentParams) => {
+  const { boardId, member, content, createdDate, mediaList, hashtagList } = storyData;
+
   const modal = useModal();
+
+  const deleteMutate = () => {
+    deleteStoryMutate(boardId, {
+      onSuccess: () => {
+        modal.closeModal();
+      },
+    });
+  };
 
   const handleDeleteStory = () => {
     modal.openModal({
       key: `DeleteWarningModal`,
-      component: () => <DeleteWarningModal targetId={boardId} target="story" />,
+      component: () => <DeleteWarningModal handleDelete={deleteMutate} />,
       isUpper: true,
       notCloseIcon: true,
     });

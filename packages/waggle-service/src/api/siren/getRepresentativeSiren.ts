@@ -6,7 +6,7 @@ import type { SirenRepresentativeType } from "@/types/siren";
 
 export const getRepresentativeSiren = async () => {
   const { data } = await axiosInstance.get<SirenRepresentativeType>(
-    END_POINTS.SIREN_REPRESENTATIVE,
+    END_POINTS.SIREN_REPRESENTATIVE
   );
 
   return data;

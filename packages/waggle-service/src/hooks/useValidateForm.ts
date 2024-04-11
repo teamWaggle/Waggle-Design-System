@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 export const useValidateForm = (
   data: string | boolean,
   ref: React.RefObject<HTMLInputElement>,
-  errorMessage: string,
+  errorMessage: string
 ) => {
   if (!data) {
     ref.current?.focus();

@@ -1,30 +1,30 @@
 import type { FieldPath, FieldValues } from "react-hook-form";
 
+import type { SerializedStyles } from "@emotion/react";
+
 import { InputNotice } from "@/components/common";
 
-import { useControlledTextForm } from "@/hooks/useControlledTextForm";
-
-import { contentTextareaStyle } from "@/components/common/Form/ContentInputField/ContentInputField.style";
+import { useControlledForm } from "@/hooks/useControlledForm";
 
 const ContentInputField = ({
   name,
   placeholder,
   validateText,
+  inputStyle,
+  isInitialNotice = true,
 }: {
   name: FieldPath<FieldValues>;
   placeholder: string;
   validateText: string;
+  inputStyle: SerializedStyles;
+  isInitialNotice?: boolean;
 }) => {
-  const { handleOnChange, isValid, errorMessage } = useControlledTextForm(name);
-
+  const { handleTextOnChange, isValid, errorMessage } = useControlledForm(name);
+  const message = isInitialNotice ? validateText : "";
   return (
     <>
-      <textarea
-        css={contentTextareaStyle(false)}
-        placeholder={placeholder}
-        onChange={handleOnChange}
-      />
-      <InputNotice message={errorMessage || validateText} isValid={isValid} />
+      <textarea css={inputStyle} placeholder={placeholder} onChange={handleTextOnChange} />
+      <InputNotice message={errorMessage || message} isValid={isValid} />
     </>
   );
 };

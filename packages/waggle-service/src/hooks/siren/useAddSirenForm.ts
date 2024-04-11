@@ -31,7 +31,7 @@ export const useAddSirenForm = ({ sirenId, initialData }: UseAddSirenFormParams)
       contact: "",
       category: "PROTECT",
       mediaList: [],
-    },
+    }
   );
 
   const updateInputValue = useCallback(
@@ -45,7 +45,7 @@ export const useAddSirenForm = ({ sirenId, initialData }: UseAddSirenFormParams)
         return data;
       });
     },
-    [],
+    []
   );
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -73,7 +73,7 @@ export const useAddSirenForm = ({ sirenId, initialData }: UseAddSirenFormParams)
           onSuccess: () => {
             navigate(PATH.SIREN_DETAIL(String(sirenId)));
           },
-        },
+        }
       );
     }
   };

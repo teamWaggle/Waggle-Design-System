@@ -6,7 +6,7 @@ import type { StoryListType } from "@/types/story";
 
 export const getMemberStory = async (memberId: number, currentPage: unknown) => {
   const { data } = await axiosInstance.get<StoryListType>(
-    END_POINTS.MEMBER_STORY(memberId, currentPage),
+    END_POINTS.MEMBER_STORY(memberId, currentPage)
   );
 
   return data;

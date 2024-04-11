@@ -13,7 +13,7 @@ export const postPasswordAuthVerify = async ({ email, authCode }: EmailAuthVerif
     {
       email,
       authCode,
-    },
+    }
   );
 
   return data;

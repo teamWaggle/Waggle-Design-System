@@ -12,7 +12,7 @@ export interface ButtonProps extends ComponentPropsWithRef<"button"> {
 
 const Button = (
   { size = "small", variant = "default", children, ...attributes }: ButtonProps,
-  ref: ForwardedRef<HTMLButtonElement>,
+  ref: ForwardedRef<HTMLButtonElement>
 ) => {
   return (
     <button

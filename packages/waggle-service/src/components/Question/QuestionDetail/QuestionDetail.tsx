@@ -8,32 +8,34 @@ import QuestionTitle from "@/components/Question/QuestionDetail/QuestionTitle";
 
 import { PATH } from "@/constants/path";
 
+import { useDeleteQuestionMutation } from "@/hooks/api/question/useDeleteQuestionMutation";
 import useModal from "@/hooks/useModal";
 
-import type { QuestionResultType } from "@/types/question";
+import type { QuestionDataType } from "@/types/question";
 
 import { layoutStyle } from "@/components/common/Post/Post.style";
 
-const QuestionDetail = ({
-  boardId,
-  title,
-  content,
-  hashtagList,
-  mediaList,
-  member,
-  viewCount,
-  createdDate,
-  recommendCount,
-  status,
-}: QuestionResultType) => {
+const QuestionDetail = ({ questionData }: QuestionDataType) => {
+  const { mutate: deleteQuestionMutae } = useDeleteQuestionMutation();
+
+  const { boardId } = questionData;
+
   const navigate = useNavigate();
 
   const modal = useModal();
 
+  const deleteMutate = () => {
+    deleteQuestionMutae(boardId, {
+      onSuccess: () => {
+        window.location.href = PATH.QUESTION;
+      },
+    });
+  };
+
   const handleDeleteQuestion = () => {
     modal.openModal({
       key: `DeleteWarningModal`,
-      component: () => <DeleteWarningModal targetId={boardId} target="question" />,
+      component: () => <DeleteWarningModal handleDelete={deleteMutate} />,
       notCloseIcon: true,
     });
   };
@@ -42,19 +44,14 @@ const QuestionDetail = ({
     <Box tag="main">
       <Flex css={layoutStyle}>
         <QuestionTitle
-          status={status}
-          title={title}
-          hashtagList={hashtagList}
-          member={member}
-          viewCount={viewCount}
-          createdDate={createdDate}
+          questionData={questionData}
           handleEditQuestion={() => navigate(PATH.QUESTION_EDIT(String(boardId)))}
           handleDeleteQuestion={handleDeleteQuestion}
         />
 
         <Divider />
 
-        <QuestionContent content={content} mediaList={mediaList} recommendCount={recommendCount} />
+        <QuestionContent questionData={questionData} />
       </Flex>
 
       <Divider />

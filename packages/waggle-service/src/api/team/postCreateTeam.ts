@@ -10,6 +10,6 @@ export const postCreateTeam = async (formData: FormData) => {
   return await authorizedAxiosInstance.post<FormData, AxiosResponse<CommonResponseType>>(
     END_POINTS.CREATE_TEAM,
     formData,
-    { headers: { "Content-Type": "multipart/form-data" } },
+    { headers: { "Content-Type": "multipart/form-data" } }
   );
 };

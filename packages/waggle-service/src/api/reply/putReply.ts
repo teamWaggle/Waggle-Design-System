@@ -13,6 +13,6 @@ export const putReply = async ({ content, mentionedMemberList, replyId }: PutRep
     {
       content,
       mentionedMemberList,
-    },
+    }
   );
 };

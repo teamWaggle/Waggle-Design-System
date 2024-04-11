@@ -6,7 +6,7 @@ import type { DividerProps } from "@/components/common/Design/Divider/Divider";
 
 export const getDirectionStyling = (
   direction: Required<DividerProps>["direction"],
-  length: Required<DividerProps>["length"],
+  length: Required<DividerProps>["length"]
 ) => {
   const style = {
     horizontal: css({

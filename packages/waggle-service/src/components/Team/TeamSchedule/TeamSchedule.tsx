@@ -1,14 +1,28 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
+import type { FieldValues } from "react-hook-form";
 
 import AddIcon from "@/assets/svg/add-icon.svg?react";
 
-import { Box, Flex, Heading, Text, DatePicker, DatePickerCalendarModal } from "@/components/common";
+import {
+  Box,
+  Flex,
+  Heading,
+  Text,
+  DatePicker,
+  DatePickerCalendarModal,
+  Form,
+} from "@/components/common";
 import Lock from "@/components/Team/TeamSchedule/Lock/Lock";
 import AddTeamScheduleModal from "@/components/Team/TeamSchedule/Modal/AddTeamScheduleModal";
 import TeamScheduleCard from "@/components/Team/TeamSchedule/TeamScheduleCard/TeamScheduleCard";
+import * as yup from "yup";
 
-import useCalendar from "@/hooks/useCalendar";
+import { TEAM_SCHEDULE_SEARCH_VALUES } from "@/constants/team";
+
+import { useTeamScheduleListPage } from "@/hooks/schedule/useTeamScheduleListPage";
 import useModal from "@/hooks/useModal";
+import useObserver from "@/hooks/useObserver";
+import { useParamsTeamId } from "@/hooks/useParamsTeamId";
 
 import {
   teamScheduleAddButtonStyle,
@@ -19,18 +33,33 @@ import {
 } from "@/components/Team/TeamSchedule/TeamSchedule.style";
 
 const TeamSchedule = () => {
+  const teamId = useParamsTeamId();
   const { openModal } = useModal();
   const [isMember] = useState(true);
-  const { selectedStartDate, selectedEndDate, editSelectedStartDate, editSelectedEndDate } =
-    useCalendar();
+  const { teamScheduleListData, fetchNextPage, hasNextPage, isFetching } =
+    useTeamScheduleListPage(teamId);
+  const ref = useObserver(async (entry, observer) => {
+    observer.unobserve(entry.target);
+
+    if (hasNextPage && !isFetching) {
+      fetchNextPage();
+    }
+  });
   const handleAddSchedule = () => {
     openModal({
       key: "AddSchedule",
-      component: () => <AddTeamScheduleModal />,
+      component: () => <AddTeamScheduleModal teamId={teamId} />,
       isWhiteIcon: true,
       isOutsideClose: false,
     });
   };
+  const onSubmit = (data: FieldValues) => {
+    console.log(data);
+  };
+  const schema = yup.object({
+    startDate: yup.date(),
+    endDate: yup.date(),
+  });
 
   return (
     <>
@@ -41,21 +70,23 @@ const TeamSchedule = () => {
               <Heading size="xLarge" css={teamScheduleTitleStyle}>
                 TEAM SCHEDULE
               </Heading>
-              <Flex style={{ gap: "4px", alignItems: "center" }}>
-                <DatePicker
-                  selectedDate={selectedStartDate}
-                  editSelectedDate={editSelectedStartDate}
-                >
-                  <DatePickerCalendarModal />
-                </DatePicker>
-                ~
-                <DatePicker selectedDate={selectedEndDate} editSelectedDate={editSelectedEndDate}>
-                  <DatePickerCalendarModal />
-                </DatePicker>
-                <Flex tag="button" css={teamScheduleSearchButtonStyle}>
-                  <Text size="xSmall">일정 검색</Text>
+              <Form schema={schema} onSubmit={onSubmit} defaultValues={TEAM_SCHEDULE_SEARCH_VALUES}>
+                <Flex style={{ gap: "4px", alignItems: "center" }}>
+                  <DatePicker name="startDate">
+                    <DatePickerCalendarModal />
+                  </DatePicker>
+                  ~
+                  <DatePicker name="endDate">
+                    <DatePickerCalendarModal />
+                  </DatePicker>
+                  <Flex tag="button" css={teamScheduleSearchButtonStyle}>
+                    <Text size="xSmall">일정 검색</Text>
+                  </Flex>
+                  <Flex tag="button" css={teamScheduleSearchButtonStyle}>
+                    <Text size="xSmall">초기화</Text>
+                  </Flex>
                 </Flex>
-              </Flex>
+              </Form>
             </Flex>
             <Flex
               onClick={handleAddSchedule}
@@ -67,13 +98,15 @@ const TeamSchedule = () => {
             </Flex>
           </Flex>
           <Box css={teamScheduleGridBoxStyle}>
-            <TeamScheduleCard isActivate={true} startDate={new Date()} />
-            <TeamScheduleCard isActivate={false} startDate={new Date()} />
-            <TeamScheduleCard isActivate={true} startDate={new Date()} />
-            <TeamScheduleCard isActivate={true} startDate={new Date()} />
-            <TeamScheduleCard isActivate={false} startDate={new Date()} />
-            <TeamScheduleCard isActivate={true} startDate={new Date()} />
+            {teamScheduleListData?.pages.map((teamScheduleData, page) => (
+              <Fragment key={page}>
+                {teamScheduleData.result.scheduleList.map((teamSchedule) => (
+                  <TeamScheduleCard key={teamSchedule.boardId} teamScheduleData={teamSchedule} />
+                ))}
+              </Fragment>
+            ))}
           </Box>
+          <div ref={ref} />
         </>
       ) : (
         <Lock />

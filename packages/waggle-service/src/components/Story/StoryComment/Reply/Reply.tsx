@@ -41,7 +41,7 @@ const Reply = ({
         onSuccess: () => {
           setContent("");
         },
-      },
+      }
     );
   };
 
@@ -57,7 +57,7 @@ const Reply = ({
           setContent("");
           setReplyId(0);
         },
-      },
+      }
     );
   };
 

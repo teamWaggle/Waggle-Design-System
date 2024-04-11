@@ -2,12 +2,13 @@ import type { FieldValues, SubmitHandler } from "react-hook-form";
 import { FormProvider } from "react-hook-form";
 import { useForm } from "react-hook-form";
 
-import { yupResolver } from "@hookform/resolvers/yup";
-
 import ColorRadioInputField from "@/components/common/Form/ColorRadioInputField/ColorRadioInputField";
 import ContentInputField from "@/components/common/Form/ContentInputField/ContentInputField";
+import DateRangeInputField from "@/components/common/Form/DateRangeInputField/DateRangeInputField";
 import ImageInputField from "@/components/common/Form/ImageInputField/ImageInputField";
+import TimeRangeInputField from "@/components/common/Form/TimeRangeInputField/TimeRangeInputField";
 import TitleInputField from "@/components/common/Form/TitleInputField/TitleInputField";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import type * as yup from "yup";
 
@@ -40,5 +41,6 @@ Form.ColorRadioInputField = ColorRadioInputField;
 Form.ImageInputField = ImageInputField;
 Form.TitleInputField = TitleInputField;
 Form.ContentInputField = ContentInputField;
-
+Form.DateRangeInputField = DateRangeInputField;
+Form.TimeRangeInputField = TimeRangeInputField;
 export default Form;

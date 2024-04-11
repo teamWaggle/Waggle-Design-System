@@ -25,7 +25,7 @@ export const useAddQuestionForm = ({ questionId, initialData }: UseAddQuestionFo
       content: "",
       hashtagList: ["test"],
       mediaList: [],
-    },
+    }
   );
 
   const updateInputValue = useCallback(
@@ -39,7 +39,7 @@ export const useAddQuestionForm = ({ questionId, initialData }: UseAddQuestionFo
         return data;
       });
     },
-    [],
+    []
   );
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -67,7 +67,7 @@ export const useAddQuestionForm = ({ questionId, initialData }: UseAddQuestionFo
           onSuccess: () => {
             navigate(PATH.QUESTION_DETAIL(String(questionId)));
           },
-        },
+        }
       );
     }
   };

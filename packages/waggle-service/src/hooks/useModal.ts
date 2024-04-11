@@ -24,14 +24,14 @@ const useModal = () => {
 
       setModals((prev) => [...prev, modalProps]);
     },
-    [setModals],
+    [setModals]
   );
 
   const selectCloseModal = useCallback(
     (key?: string) => {
       setModals(modals.filter((prev) => prev.key !== key));
     },
-    [setModals],
+    [setModals]
   );
 
   const closeModal = useCallback(() => {

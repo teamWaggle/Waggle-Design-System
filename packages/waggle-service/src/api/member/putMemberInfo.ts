@@ -14,6 +14,6 @@ export const putMemberInfo = async (formData: FormData) => {
   return await authorizedAxiosInstance.put<FormData, AxiosResponse<CommonResponseType>>(
     END_POINTS.SIGN_UP,
     formData,
-    config,
+    config
   );
 };

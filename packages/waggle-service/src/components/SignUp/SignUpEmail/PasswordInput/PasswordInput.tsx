@@ -15,7 +15,7 @@ interface PasswordParams {
   valueKey: keyof PasswordFormType;
   updatePasswordInputValue: <Key extends keyof PasswordFormType>(
     key: Key,
-    value: PasswordFormType[Key],
+    value: PasswordFormType[Key]
   ) => void;
   passwordRef: React.RefObject<HTMLInputElement>;
   title: string;

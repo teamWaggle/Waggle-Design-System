@@ -2,6 +2,9 @@
     "folders": [
       {
         "path": "packages/waggle-design-system"
+      },
+      {
+        "path": "packages/waggle-service"
       }
     ],
     "settings": {

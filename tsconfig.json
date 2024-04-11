@@ -16,6 +16,9 @@
     "references": [
       {
         "path": "packages/waggle-design-system"
+      },
+      {
+        "path": "packages/waggle-service"
       }
     ],
     "exclude": ["packages/**/dist/**"],

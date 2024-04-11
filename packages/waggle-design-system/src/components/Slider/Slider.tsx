@@ -21,7 +21,7 @@ const Slider = ({
 }) => {
   const { currentIndex, handlePrevOnClick, handleNextOnClick } = useSlider(
     dataLength,
-    displayCount,
+    displayCount
   );
   return (
     <Box style={{ position: "relative" }}>

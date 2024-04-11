@@ -10,7 +10,7 @@
         "build:design-system": "yarn workspace waggle-design-system publish:npm",
         "lint": "eslint ./packages/*/src/**/*.{ts,tsx,js,jsx}",
         "lint:fix": "eslint --fix ./packages/*/src/**/*.{ts,tsx,js,jsx}",
-        "prepare": "husky install"
+        "postinstall": "husky install"
     },
     "dependencies": {
         "@babel/runtime": "7.14.6",
@@ -58,15 +58,5 @@
         "@storybook/core-server/webpack": "^5",
         "@storybook/react/webpack": "^5",
         "@testing-library/dom": "^9.0.0"
-    },
-    "lint-staged": {
-        "packages/*/src/**/*.{js,jsx,ts,tsx}": [
-            "yarn lint"
-        ]
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
     }
 }

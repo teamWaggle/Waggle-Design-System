@@ -8,10 +8,9 @@
     },
     "scripts": {
         "build:design-system": "yarn workspace waggle-design-system publish:npm",
-        "lint": "eslint ./packages --ext .ts,.tsx,.js,.jsx",
-        "lint:fix": "eslint --fix ./packages --ext .ts,.tsx,.js,.jsx",
-        "prepare": "husky install",
-        "format": "prettier --write src/**/*.ts{,x}"
+        "lint": "eslint ./packages/*/src/**/*.{ts,tsx,js,jsx}",
+        "lint:fix": "eslint --fix ./packages/*/src/**/*.{ts,tsx,js,jsx}",
+        "prepare": "husky install"
     },
     "dependencies": {
         "@babel/runtime": "7.14.6",
@@ -61,8 +60,7 @@
         "@testing-library/dom": "^9.0.0"
     },
     "lint-staged": {
-        "src/**/*.{js,jsx,ts,tsx}": [
-            "yarn format",
+        "packages/*/src/**/*.{js,jsx,ts,tsx}": [
             "yarn lint"
         ]
     },
